@@ -36,6 +36,10 @@ var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p><br>%data%</p>';
 
+var HTMLworkStartMod = '<div class="work-entry"><a href="#" class="workLink"></div>';
+var HTMLworkEmployerMod = '<div>%data%';
+var HTMLworkTitleMod = ' - %data%</div>';
+
 var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';

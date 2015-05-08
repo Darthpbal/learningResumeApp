@@ -15,32 +15,32 @@ var bio = {
         "electronics",
         "leadership",
         "Computer literate",
-        "Code monkey",
-        "Soldering",
-        "Good with a pair of pliers",
-        "Great at smoking weed",
-        "Soldering",
-        "Good with a pair of pliers",
-        "Soldering",
-        "Good with a pair of pliers",
-        "Soldering",
-        "Good with a pair of pliers",
-        "Soldering",
-        "Good with a pair of pliers",
-        "Soldering",
-        "Good with a pair of pliers",
-        "Soldering",
-        "Good with a pair of pliers",
-        "Soldering",
-        "Good with a pair of pliers",
-        "Soldering",
-        "Good with a pair of pliers",
-        "Soldering",
-        "Good with a pair of pliers",
-        "Soldering",
-        "Good with a pair of pliers",
-        "Soldering",
-        "Good with a pair of pliers",
+        // "Code monkey",
+        // "Soldering",
+        // "Good with a pair of pliers",
+        // "Great at smoking weed",
+        // "Soldering",
+        // "Good with a pair of pliers",
+        // "Soldering",
+        // "Good with a pair of pliers",
+        // "Soldering",
+        // "Good with a pair of pliers",
+        // "Soldering",
+        // "Good with a pair of pliers",
+        // "Soldering",
+        // "Good with a pair of pliers",
+        // "Soldering",
+        // "Good with a pair of pliers",
+        // "Soldering",
+        // "Good with a pair of pliers",
+        // "Soldering",
+        // "Good with a pair of pliers",
+        // "Soldering",
+        // "Good with a pair of pliers",
+        // "Soldering",
+        // "Good with a pair of pliers",
+        // "Soldering",
+        // "Good with a pair of pliers",
         "Soldering",
         "Good with a pair of pliers"
     ]
@@ -105,6 +105,12 @@ var education = {
             "degree" : "BA",
             "gradYear" : "2017"
         }
+    ],
+    "onlineCourses" : [
+        "Javascript basics",
+        "Udacity",
+        "25",
+        "udacity.com"
     ]
 };
 
@@ -113,31 +119,13 @@ var projects = {
     {
         "title" : "Sapphire Tracker",
         "dates" : "9/20/14",
-        "description" : "I was charged with the task initially of learning 
-        how to install a tracking system for a A company named Ruby Ride.
-        Eventually through a series of unsatisfactory tracking units, we decided
-        that it would be more efficient to purpose build some for the company 
-        and use those. From then on, my task was to use my current knowledge of tech
-        to develop a working and reliable tracking system for their company vehicles."
+        "description" : "m for their company vehicles.",
         "images" : "http://www.sapphiretech.com/images/sapphire_corporate_logo.jpg",
     },
     {
         "title" : "Flash drive note taking & organizing app",
         "dates" : "not long ago",
-        "description" : "Basically slowly and incrementally making a flash drive 
-        note taking application as a small programming project that I work on now 
-        and then. Its end purpose is to be a way to take notes in any webbrowser 
-        on any computer and organize them. When I say organize, I mean I want to 
-        be able to write notes and the system take something like date and subject 
-        and class and be able to tag it with specifics like if that day in math, 
-        you reviewed laplace transforms, then you can tag the note group for that 
-        day as laplace transforms. In the end, what if you have something like 
-        \"test mode\" where you activate this when a test is coming up. It then 
-        opens up a window asking for the chapters and respective subjects per 
-        chapter that the test covers. This gives the application enough 
-        information to group your notes intelligently, and then you just check 
-        off what skills you feel you've mastered and the app hides them, cleaning 
-        your workspace.",
+        "description" : "Basicallyning your workspace.",
         "images" : "http://iblog.dearbornschools.org/harrison/wp-content/uploads/sites/670/2013/12/taking_notes.jpg"
     },
     {
@@ -154,3 +142,38 @@ var projects = {
     }
     ]
 };
+
+// ==================================================================================================
+
+$("#main").prepend(HTMLheaderRole.replace("%data%", bio.role));
+$("#main").prepend(HTMLheaderName.replace("%data%", bio.name));
+
+//This checks to see if I have skills, and then adds it to the page if I do.
+if(bio.skills.length > 0)
+{
+    $("#header").append(HTMLskillsStart);
+    for (var i = 0; i<bio.skills.length; i++ ) {
+        $("#skills").append(HTMLskills.replace("%data%",bio.skills[i]));
+    };
+}
+
+
+//Here my work experience is added to the page
+for (job in work.jobs) {// note that here job is the index of the array index number in the jobs array
+    $("#workExperience").append(HTMLworkStartMod.replace("#",work.jobs[job].link));
+
+    //this section handles general formatting the object data into HTML to append fluidly later
+    var formattedEmployer = HTMLworkEmployerMod.replace("%data%",work.jobs[job].employer);
+    var formattedTitle = HTMLworkTitleMod.replace("%data%",work.jobs[job].title);
+    var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+    var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+    var formattedDatesWorked = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+
+    //These line actually add the formatted data and adds it to the page element
+    $(".workLink:last").append(formattedEmployer + formattedTitle);
+    $(".workLink:last").append(formattedLocation);
+    $(".workLink:last").append(formattedDatesWorked);
+    $(".workLink:last").append(formattedWorkDescription);
+};
+
+
