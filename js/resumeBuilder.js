@@ -54,7 +54,7 @@ var work = {
         "location" : "scottsdale",
         "dates" : "some time to some time",
         "description" : "I got paid to suck at chess for a while",
-        "link" : "images/fry.jpg"
+        "link" : "newpage.html"
     },
     {
         "employer" : "phoenix college a&R",
