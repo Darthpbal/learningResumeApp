@@ -145,6 +145,39 @@ var projects = {
 
 // ==================================================================================================
 
+//Setting up functions
+
+//Here is my displaywork function
+var displayWork = function(){
+
+    //Here my work experience is added to the page
+    for (job in work.jobs) {// note that here job is the index of the array index number in the jobs array
+        $("#workExperience").append(HTMLworkStartMod.replace("#",work.jobs[job].link));
+
+        //this section handles general formatting the object data into HTML to append fluidly later
+        var formattedEmployer = HTMLworkEmployerMod.replace("%data%",work.jobs[job].employer);
+        var formattedTitle = HTMLworkTitleMod.replace("%data%",work.jobs[job].title);
+        var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+        var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+        var formattedDatesWorked = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+
+        //These line actually add the formatted data and adds it to the page element
+        $(".workLink:last").append(formattedEmployer + formattedTitle);
+        $(".workLink:last").append(formattedLocation);
+        $(".workLink:last").append(formattedDatesWorked);
+        $(".workLink:last").append(formattedWorkDescription);
+    };
+}
+
+//This is my click logging function used to log click locations from the user.
+function logClicks(x,y){
+    console.log("x location: " + x + "; " + "y location: " + y);
+}
+
+//===================================================================================================
+
+//Page Construction
+
 $("#main").prepend(HTMLheaderRole.replace("%data%", bio.role));
 $("#main").prepend(HTMLheaderName.replace("%data%", bio.name));
 
@@ -158,22 +191,11 @@ if(bio.skills.length > 0)
 }
 
 
-//Here my work experience is added to the page
-for (job in work.jobs) {// note that here job is the index of the array index number in the jobs array
-    $("#workExperience").append(HTMLworkStartMod.replace("#",work.jobs[job].link));
+displayWork();
 
-    //this section handles general formatting the object data into HTML to append fluidly later
-    var formattedEmployer = HTMLworkEmployerMod.replace("%data%",work.jobs[job].employer);
-    var formattedTitle = HTMLworkTitleMod.replace("%data%",work.jobs[job].title);
-    var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-    var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-    var formattedDatesWorked = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-
-    //These line actually add the formatted data and adds it to the page element
-    $(".workLink:last").append(formattedEmployer + formattedTitle);
-    $(".workLink:last").append(formattedLocation);
-    $(".workLink:last").append(formattedDatesWorked);
-    $(".workLink:last").append(formattedWorkDescription);
-};
-
-
+//this runs every time the user clicks somewhere on the page
+$(document).click(function(loc){
+    var x = loc.pageX;
+    var y = loc.pageY;
+    logClicks(x,y);
+});
