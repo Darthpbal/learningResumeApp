@@ -275,3 +275,4 @@ projects.display();
 $('#main').append(internationalizeButton);
 
 //this runs every time the user clicks somewhere on the page
+$("#checkkBoxId").prop('checked') ? console.log("Checked") : console.log("Unchecked");
