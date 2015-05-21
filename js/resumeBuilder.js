@@ -15,32 +15,31 @@ var bio = {
         "electronics",
         "leadership",
         "Computer literate",
-        // "Code monkey",
-        // "Soldering",
-        // "Good with a pair of pliers",
-        // "Great at smoking weed",
-        // "Soldering",
-        // "Good with a pair of pliers",
-        // "Soldering",
-        // "Good with a pair of pliers",
-        // "Soldering",
-        // "Good with a pair of pliers",
-        // "Soldering",
-        // "Good with a pair of pliers",
-        // "Soldering",
-        // "Good with a pair of pliers",
-        // "Soldering",
-        // "Good with a pair of pliers",
-        // "Soldering",
-        // "Good with a pair of pliers",
-        // "Soldering",
-        // "Good with a pair of pliers",
-        // "Soldering",
-        // "Good with a pair of pliers",
-        // "Soldering",
-        // "Good with a pair of pliers",
-        // "Soldering",
-        // "Good with a pair of pliers",
+        "Code monkey",
+        "Soldering",
+        "Good with a pair of pliers",
+        "Soldering",
+        "Good with a pair of pliers",
+        "Soldering",
+        "Good with a pair of pliers",
+        "Soldering",
+        "Good with a pair of pliers",
+        "Soldering",
+        "Good with a pair of pliers",
+        "Soldering",
+        "Good with a pair of pliers",
+        "Soldering",
+        "Good with a pair of pliers",
+        "Soldering",
+        "Good with a pair of pliers",
+        "Soldering",
+        "Good with a pair of pliers",
+        "Soldering",
+        "Good with a pair of pliers",
+        "Soldering",
+        "Good with a pair of pliers",
+        "Soldering",
+        "Good with a pair of pliers",
         "Soldering",
         "Good with a pair of pliers"
     ],
@@ -242,19 +241,19 @@ function logClicks(x,y){
 
 //Console logging
 
-$(document).click(function(loc){
-    var x = loc.pageX;
-    var y = loc.pageY;
-    logClicks(x,y);
-});
+// $(document).click(function(loc){
+//     var x = loc.pageX;
+//     var y = loc.pageY;
+//     logClicks(x,y);
+// });
 
-$(document).click(function(loc) 
-    {
-        console.log(loc.pageX, loc.pageY);
-    }
-);
+// $(document).click(function(loc) 
+//     {
+//         console.log(loc.pageX, loc.pageY);
+//     }
+// );
 
-console.log(work.locationizor(work));
+// console.log(work.locationizor(work));
 
 //====================================================================================================
 
@@ -274,5 +273,56 @@ work.display();
 projects.display();
 $('#main').append(internationalizeButton);
 
-//this runs every time the user clicks somewhere on the page
-$("#checkkBoxId").prop('checked') ? console.log("Checked") : console.log("Unchecked");
+
+// $("#checkkBoxId").prop('checked') ? console.log("Checked") : console.log("Unchecked");
+// $('#checkkBoxId').click(function(){
+//     console.log('Activated!!!');
+//     if($(this).prop('checked'))
+//     {
+//         console.log('checked');
+//     }
+//     else{
+//         console.log('unchecked');
+//     }
+// });
+
+// $("#checker").click('checkbox', function()
+// {
+//     console.log('Activated');
+//     console.log($(this).prop('checked'));
+//     if($(this).prop('checked'))
+//     {
+//         $('.desc').show();
+//     }
+//     else{
+//         $('.desc').hide();   
+//     }
+// } );
+
+// $("ul.level-3").children().css('background-color', 'red');
+
+// $(".container").click('one', function()
+// {
+//     console.log('Working...');
+//     console.log($(this).prop('checked'));
+// });
+
+/*
+<div id="checker">
+  <input type="checkbox" class="checkbox">
+  <div class="desc" style="display:none;">I am a description</div>
+</div>
+*/
+
+$(".mainContainer").on('click', 'input[id^=other]', function()
+    {
+        console.log($(this).prop('checked'));
+        if($(this).prop('checked'))
+        {
+            $(this).parent().parent().parent().parent().parent().children().last().show();
+        }else{
+            $(this).parent().parent().parent().parent().parent().children().last().hide();
+        }
+        
+        // $(this).parent().parent().parent().parent().hide();
+    });
