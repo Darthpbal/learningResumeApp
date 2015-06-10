@@ -174,7 +174,7 @@ function initializeMap() {
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+      infoWindow.open(map, marker);
     });
 
     // this is where the pin actually gets added to the map.
@@ -237,11 +237,209 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function(e) {
   // Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+ map.fitBounds(mapBounds);
+});
+
+
+
+
+
+
+// An example function used for the udacity javascript class used for comparing two input numbers
+function getRelationship(x, y) {
+    var preError = "Can't compare relationships because \'";
+    var postErrorSingle = "\' is not a number.";
+    var postErrorPlural = "\' are not numbers.";
+    var singlePlural;
+
+    var xType = typeof x;
+    var yType = typeof y;
+    
+    if(xType == 'string' || yType == 'string')
+    {
+      singlePlural = (xType == yType && xType == "string") ? "plural" : "single" ;
+      if(singlePlural == "plural")
+      {
+        console.log(preError + x + "\' and \'" + y + postErrorPlural);
+      }else
+      {
+        (xType !== "number") ? console.log(preError + x + postErrorSingle): console.log(preError + y + postErrorSingle);
+      }      
+    }else
+    {
+      (x > y)? console.log(">"): ((x < y)? console.log("<"): console.log("="));
+    }
+}
+
+
+
+
+var moonWalkers = [
+  "Neil Armstrong",
+  "Buzz Aldrin",
+  "Pete Conrad",
+  "Alan Bean",
+  "Alan Shepard",
+  "Edgar Mitchell",
+  "David Scott",
+  "James Irwin",
+  "John Young",
+  "Charles Duke",
+  "Eugene Cernan",
+  "Harrison Schmitt"
+];
+
+function alphabetizer(names) {
+  var alphaNames = [];
+    for(var name in names)
+    {
+      var nameArray = names[name].split(" ");
+      alphaNames.push(nameArray[1] + ", " + nameArray[0]);
+    }
+    return alphaNames.sort();
+}
+
+// Try logging your results to test your code!
+console.log(alphabetizer(moonWalkers));
+
+
+
+
+
+
+
+// Iterate through the localizedRuleNames in ruleResults and 
+// return an array of their strings.
+function ruleList(results) {
+  for(var name in results.formattedResults.ruleResults)
+  {
+    for(var item in name)
+    {
+      console.log("1");
+    }
+  }
+}
+
+// Iterate through pageStats in the psiResults object and 
+// return the total number of bytes to load the website.
+function totalBytes(results) {
+  var value = 0;
+    for(var stats in results.pageStats)
+    {
+      if(stats.search("Bytes") == -1)continue;
+      value = value + Number(results.pageStats[stats]);
+    }
+    return value;
+}
+
+// Below, you'll find a sample PS Insights JSON
+// and two console.log statements to help you test your code!
+
+psinsights = {
+ "kind": "pagespeedonline#result",
+ "id": "/speed/pagespeed",
+ "responseCode": 200,
+ "title": "PageSpeed Home",
+ "score": 90,
+ "pageStats": {
+  "numberResources": 22,
+  "numberHosts": 7,
+  "totalRequestBytes": "2761",
+  "numberStaticResources": 16,
+  "htmlResponseBytes": "91981",
+  "cssResponseBytes": "37728",
+  "imageResponseBytes": "13909",
+  "javascriptResponseBytes": "247214",
+  "otherResponseBytes": "8804",
+  "numberJsResources": 6,
+  "numberCssResources": 2
+ },
+ "formattedResults": {
+  "locale": "en_US",
+  "ruleResults": {
+    "AvoidBadRequests": {
+      "localizedRuleName": "Avoid bad requests",
+      "ruleImpact": 0.0
+    },
+    "MinifyJavaScript": {
+      "localizedRuleName": "Minify JavaScript",
+      "ruleImpact": 0.1417,
+      "urlBlocks": [
+      {
+        "header": {
+       "format": "Minifying the following JavaScript resources could reduce their size by $1 ($2% reduction).",
+       "args": [
+        {
+         "type": "BYTES",
+         "value": "1.3KiB"
+        },
+        {
+         "type": "INT_LITERAL",
+         "value": "0"
+        }
+       ]
+        },
+        "urls": [
+        {
+          "result": {
+         "format": "Minifying $1 could save $2 ($3% reduction).",
+         "args": [
+          {
+           "type": "URL",
+           "value": "http://code.google.com/js/codesite_tail.pack.04102009.js"
+          },
+          {
+           "type": "BYTES",
+           "value": "717B"
+          },
+          {
+           "type": "INT_LITERAL",
+           "value": "1"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "Minifying $1 could save $2 ($3% reduction).",
+         "args": [
+          {
+           "type": "URL",
+           "value": "http://www.gmodules.com/ig/proxy?url\u003dhttp%3A%2F%2Fjqueryjs.googlecode.com%2Ffiles%2Fjquery-1.2.6.min.js"
+          },
+          {
+           "type": "BYTES",
+           "value": "258B"
+          },
+          {
+           "type": "INT_LITERAL",
+           "value": "0"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "SpriteImages": {
+    "localizedRuleName": "Combine images into CSS sprites",
+    "ruleImpact": 0.0
+   }
+  }
+ },
+ "version": {
+  "major": 1,
+  "minor": 11
+ }
+};
+
+// Try logging the outputs below to test your code!
+console.log(ruleList(psinsights));
+console.log(totalBytes(psinsights));

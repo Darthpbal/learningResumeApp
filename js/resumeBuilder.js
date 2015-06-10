@@ -1,10 +1,10 @@
 var bio = {
     "name" : "Paul Ronquillo",
     "role" : "Electrical Engineering Student",
-    "contact" : {
+    "contacts" : {
         "mobile" : "6237030508",
         "email" : "Ronquillo.Paul@gmail.com",
-        "home" : "8154w whyman ave"
+        "location" : "8154w whyman ave",
     },
     "pic" : "http://upload.wikimedia.org/wikipedia/commons/e/ec/Silego_clock_generator.JPG",
     "welcome" : "Welcome to my resume website. Please, Make yourself at homepage...",
@@ -253,7 +253,7 @@ function logClicks(x,y){
 //     }
 // );
 
-// console.log(work.locationizor(work));
+console.log(work.locationizor(work));
 
 //====================================================================================================
 
@@ -261,6 +261,11 @@ function logClicks(x,y){
 
 $("#main").prepend(HTMLheaderRole.replace("%data%", bio.role));
 $("#main").prepend(HTMLheaderName.replace("%data%", bio.name));
+$("#mapDiv").append(googleMap);
+// for(var location in work.locationizor(work))
+// {
+//     $("#map").append(location);
+// }
 
 //This checks to see if I have skills, and then adds it to the page if I do.
 if(bio.skills.length > 0)
