@@ -63,9 +63,6 @@ var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
 
-/*
-The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
-*/
 $(document).ready(function() {
   $('button').click(function() {
     var iName = inName() || function(){};
@@ -73,9 +70,7 @@ $(document).ready(function() {
   });
 });
 
-/*
-The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
-*/
+
 clickLocations = [];
 
 function logClicks(x,y) {
@@ -105,45 +100,45 @@ var map;    // declares a global map variable
 /*
 Start here! initializeMap() is called when page is loaded.
 */
-function initializeMap() {
+// function initializeMap() {
 
-  var locations;
+//   var locations;
 
-  var mapOptions = {
-    disableDefaultUI: true
-  };
+//   var mapOptions = {
+//     disableDefaultUI: true
+//   };
 
   // This next line makes `map` a new Google Map JavaScript Object and attaches it to
   // <div id="map">, which is appended as part of an exercise late in the course.
-  map = new google.maps.Map(document.querySelector('#map'), mapOptions);
+  // map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
 
   /*
   locationFinder() returns an array of every location string from the JSONs
   written for bio, education, and work.
   */
-  function locationFinder() {
+  // function locationFinder() {
 
-    // initializes an empty array
-    var locations = [];
+  //   // initializes an empty array
+  //   var locations = [];
 
-    // adds the single location property from bio to the locations array
-    locations.push(bio.contacts.location);
+  //   // adds the single location property from bio to the locations array
+  //   locations.push(bio.contacts.location);
 
-    // iterates through school locations and appends each location to
-    // the locations array
-    for (var school in education.schools) {
-      locations.push(education.schools[school].location);
-    }
+  //   // iterates through school locations and appends each location to
+  //   // the locations array
+  //   for (var school in education.schools) {
+  //     locations.push(education.schools[school].location);
+  //   }
 
-    // iterates through work locations and appends each location to
-    // the locations array
-    for (var job in work.jobs) {
-      locations.push(work.jobs[job].location);
-    }
+  //   // iterates through work locations and appends each location to
+  //   // the locations array
+  //   for (var job in work.jobs) {
+  //     locations.push(work.jobs[job].location);
+  //   }
 
-    return locations;
-  }
+  //   return locations;
+  // }
 
   /*
   createMapMarker(placeData) reads Google Places search results to create map pins.
@@ -200,51 +195,51 @@ function initializeMap() {
   pinPoster(locations) takes in the array of locations created by locationFinder()
   and fires off Google place searches for each location
   */
-  function pinPoster(locations) {
+  // function pinPoster(locations) {
 
-    // creates a Google place search service object. PlacesService does the work of
-    // actually searching for location data.
-    var service = new google.maps.places.PlacesService(map);
+  //   // creates a Google place search service object. PlacesService does the work of
+  //   // actually searching for location data.
+  //   // var service = new google.maps.places.PlacesService(map);
 
-    // Iterates through the array of locations, creates a search object for each location
-    for (var place in locations) {
+  //   // Iterates through the array of locations, creates a search object for each location
+  //   // for (var place in locations) {
 
-      // the search request object
-      var request = {
-        query: locations[place]
-      };
+  //   //   // the search request object
+  //   //   var request = {
+  //   //     query: locations[place]
+  //   //   };
 
-      // Actually searches the Google Maps API for location data and runs the callback
-      // function with the search results after each search.
-      service.textSearch(request, callback);
-    }
-  }
+  //   //   // Actually searches the Google Maps API for location data and runs the callback
+  //   //   // function with the search results after each search.
+  //   //   service.textSearch(request, callback);
+  //   // }
+  // }
 
   // Sets the boundaries of the map based on pin locations
-  window.mapBounds = new google.maps.LatLngBounds();
+  // window.mapBounds = new google.maps.LatLngBounds();
 
   // locations is an array of location strings returned from locationFinder()
-  locations = locationFinder();
+  // locations = locationFinder();
 
   // pinPoster(locations) creates pins on the map for each location in
   // the locations array
-  pinPoster(locations);
+  // pinPoster(locations);
 
-}
+// }
 
 /*
 Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-window.addEventListener('load', initializeMap);
+// window.addEventListener('load', initializeMap);
 
-// Vanilla JS way to listen for resizing of the window
-// and adjust map bounds
-window.addEventListener('resize', function(e) {
-  // Make sure the map bounds get updated on page resize
- map.fitBounds(mapBounds);
-});
+// // Vanilla JS way to listen for resizing of the window
+// // and adjust map bounds
+// window.addEventListener('resize', function(e) {
+//   // Make sure the map bounds get updated on page resize
+//  map.fitBounds(mapBounds);
+// });
 
 
 
@@ -306,7 +301,7 @@ function alphabetizer(names) {
 }
 
 // Try logging your results to test your code!
-console.log(alphabetizer(moonWalkers));
+// console.log(alphabetizer(moonWalkers));
 
 
 
@@ -317,13 +312,18 @@ console.log(alphabetizer(moonWalkers));
 // Iterate through the localizedRuleNames in ruleResults and 
 // return an array of their strings.
 function ruleList(results) {
+  var ruleArray = []
   for(var name in results.formattedResults.ruleResults)
   {
-    for(var item in name)
+    for(var item in results.formattedResults.ruleResults[name])
     {
-      console.log("1");
+      if(item == "localizedRuleName")
+      {
+        ruleArray.push(results.formattedResults.ruleResults[name][item]);
+      }
     }
   }
+  return ruleArray;
 }
 
 // Iterate through pageStats in the psiResults object and 
@@ -442,4 +442,5 @@ psinsights = {
 
 // Try logging the outputs below to test your code!
 console.log(ruleList(psinsights));
-console.log(totalBytes(psinsights));
+// console.log(totalBytes(psinsights));
+

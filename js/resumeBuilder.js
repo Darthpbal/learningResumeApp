@@ -253,7 +253,7 @@ function logClicks(x,y){
 //     }
 // );
 
-console.log(work.locationizor(work));
+// console.log(work.locationizor(work));
 
 //====================================================================================================
 

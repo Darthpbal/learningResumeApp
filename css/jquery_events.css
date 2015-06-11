@@ -1,0 +1,42 @@
+a {
+	display: none;
+}
+
+/* 1.
+form {
+    font-size: 12px;
+    font-family: Verdana, Arial, Sans-Serif;
+    display: inline-block;
+}
+#messages {
+    font-size: 14px;
+	font-family: Garamond, Times, Serif;
+}
+*/
+
+
+/* 2.
+div {
+    border-radius: 5px;
+    background-color: #ABCDEF;
+    transition: background-color 0.5s ease;
+    display:inline;
+    font-size:25px;
+    padding:20px;
+    border:1px solid #ccc;
+    margin-top:10px;
+}
+
+.active {
+    background-color:#556677;
+}*/
+
+/*3. input{
+	font-family: Verdana, Arial, Sans-Serif;
+}*/
+
+img {
+    position: relative;
+    left: 0;
+    top: 0;
+}
