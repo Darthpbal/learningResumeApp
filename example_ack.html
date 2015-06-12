@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Example Acknowledgements</title>
+	</head>
+	<body>
+		<div id="checkboxes" class="col-lg-1">
+			<div class="col-lg-1 col-lg-offset-10">
+				<p><input type="checkbox" id="prof"></p>
+				<p><input type="checkbox" id="cons"></p>
+				<p><input type="checkbox" id="dev"></p>
+			</div>
+		</div>
+		<div id="menu" class="col-lg-9">
+	        <h3>jQuery</h3>
+	        <div>
+	        	<input type="checkbox">
+	            <p>jQuery is a JavaScript library that makes your websites look absolutely stunning.</p>
+	        </div>
+	        <h3><input type="checkbox" id="prof-check">jQuery UI</h3>
+	        <div>
+	            <p>jQuery UI includes even more jQuery goodness!</p>
+	        </div>
+	        <h3>JavaScript</h3>
+	        <div>
+	            <p>JavaScript is a programming language used in web browsers, and it's what powers jQuery and jQuery UI. You can learn about JavaScript in the <a href="http://www.codecademy.com/tracks/javascript" target="blank" style="text-decoration:none; color:#F39814">JavaScript track</a> here on Codecademy.</p>
+	        </div>
+	    </div>
+	</body>
+	<footer>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+		<script type="text/javascript">
+
+			$(document).ready(function()
+				{
+					$("#menu").accordion({collapsible: true, active: false});
+					$('#menu').on('click', 'input[id=prof-check]', function()
+						{
+							console.log($('#prof-check').prop('checked'));
+							if($('#prof-check').prop('checked'))
+							{
+								console.log(true);
+								$('#prof-check').prop('checked', true);
+							}else
+							{
+								console.log(false);
+								$('#prof-check').prop('checked', true);
+							}
+						});
+					$(document).keydown(function()
+						{
+							console.log($('#prof-check').prop('checked'));
+							if($('#prof-check').prop('checked') == true)
+							{
+								console.log(true);
+								$('#prof-check').prop('checked', false);
+							}else
+							{
+								console.log(false);
+								$('#prof-check').prop('checked', true);
+							}
+							// $('#prof-check').prop('checked', true);
+						});
+				});
+
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel='stylesheet' type='text/css' href='http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css'/>
+		<style type="text/css">
+			p {
+				position: relative;
+				top: +15px;
+			}
+
+		</style>
+
+	</footer>
+</html>
