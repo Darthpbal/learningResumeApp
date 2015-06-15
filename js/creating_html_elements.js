@@ -27,8 +27,10 @@ $(document).ready(function()
     {
 
         var toAdd = $('input[name=checkListItem]').val();
-        $('.list').prepend('<div class="item">' + toAdd +'</div>');
+        $('.list').prepend('<li class="item">' + toAdd +'</li>');
     });
+
+    $('.list').sortable();
 
 	$(document).on('click', '.item', function()
 		{
