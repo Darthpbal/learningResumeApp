@@ -25,15 +25,17 @@ $(document).ready(function()
 	
 	$('#button').click(function()
     {
+    	$('.list').sortable();
 
         var toAdd = $('input[name=checkListItem]').val();
-        $('.list').prepend('<div class="item">' + toAdd +'</div>');
-    });
+	        $('.list').prepend('<div class="item">' + toAdd +'</div>');
+	    	});
 
-	$(document).on('click', '.item', function()
-		{
-			$(this).remove();
-		});
+
+		$(document).on('click', '.item', function()
+			{
+				$(this).remove();
+			});
 
 });
 
