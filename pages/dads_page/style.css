@@ -1,0 +1,38 @@
+
+#navigation {
+	text-align: center;
+	border-color: blue;
+	color: #3399FF;
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+#content {
+	background-color: #C2E0FF;
+	border: 3px solid;
+	border-radius: 15px;
+	border-color: blue;
+	padding: 25px;
+}
+
+img {
+	width: 500px;
+}
+caption {
+	text-align: center;
+}
+
+#signature {
+		padding: 25px;
+}
+
+#conclusion {
+	padding: 25px;
+}
+
+#navigation-title {
+	    border-bottom: 5px solid #CCCCE0;
+	    padding: 5px;
+}

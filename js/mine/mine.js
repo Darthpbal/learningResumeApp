@@ -36,7 +36,7 @@ var master = {
 		},
 		"dadsPage" : {
 			"name" : "Dads Page",
-			"location" : "pages/dads_page.html",
+			"location" : "pages/dads_page/dads_page.html",
 		},
 	},
 	"show" : function()
