@@ -2,169 +2,28 @@
 
 
 <html>
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<meta name="viewport" content="width=device-width">
-	<title>The Concierge</title>
-</head>
-<body class="container">
-<!-- 
-=====================================================================
-===============                               =======================
-==============   Body of the main index page   ======================
-===============                               =======================
-===================================================================== 
--->
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<meta name="viewport" content="width=device-width">
+		<title>The Concierge</title>
+	</head>
+	<body class="container">
 
 
-<div id="index list" class="jumbotron">
-	<h1 id="heading">Home Page</h1>
-	<p>Welcome to the home pgae of my shit little test app.</p>
-</div>
-
-<ul id="sidebar" class="col-sm-3 col-md-3 col-lg-2 well">
-</ul>
-
-<!-- 
-=====================================================================
-=====================================================================
-=====================================================================
-=====================================================================
-=====================================================================
--->
-
-
-
-
-    <!--
-    Everything from here to the <script> tag below is the skeleton of your
-    website. Your code will add information to each of the sections of the
-    resume below. You can pretty easily figure out what each section will
-    display by looking at the id or at what's written between the <h2> tags.
-    -->
-    <div id="header" class="center-content clearfix bg-primary">
-      <ul id="topContacts" class='flex-box'></ul>
-    </div>
-    <div style='clear: both;'></div>
-    <div id="workExperience" class='gray'>
-      <h2>Work Experience</h2>
-    </div>
-    
-    
-    <div class="panel panel-primary">
-		<div class="panel-heading">
-			<span class="panel-title">Title Panel</span>
-		</div>
-		<div class="panel-body">
-			<div class="row alert-info">
-				<div class="col-md-2">
-					<label for="objectCodeName" class="label label-success row">ObjectCodeLabel:</label>
-					<span class="row" id="objectCodeName">ObjectCodeData</span>
-				</div>
-				<div class="col-md-2">
-					<label for="namelabel" class="label label-success row">NameLabel:</label>
-					<span class="row" id="namelabel">NameData</span>
-				</div>
-				<div class="col-md-2">
-					<label for="ratelabel" class="label label-success row">CostRateLabel:</label>
-					<span class="row" id="ratelabel">CostRateData</span>
-				</div>
-				<div class="col-md-2">
-					<label for="quantity" class="label label-success row">QuantityLabel:</label>
-					<span class="row" id="quantity">QuantityData</span>
-				</div>
-				<div class="col-md-2">
-					<label for="total" class="label label-success row">TotalLabel:</label>
-					<span class="row" id="total">TotalData</span>
-				</div>
-			</div>
-			&nbsp;
-			<div class="row alert-info">
-				<div class="col-md-2">
-					<label for="objectCodeName" class="label label-success row">ObjectCodeLabel:</label>
-					<span class="row" id="objectCodeName">ObjectCodeData</span>
-				</div>
-				<div class="col-md-2">
-					<label for="namelabel" class="label label-success row">NameLabel:</label>
-					<span class="row" id="namelabel">NameData</span>
-				</div>
-				<div class="col-md-2">
-					<label for="ratelabel" class="label label-success row">CostRateLabel:</label>
-					<span class="row" id="ratelabel">CostRateData</span>
-				</div>
-				<div class="col-md-2">
-					<label for="quantity" class="label label-success row">QuantityLabel:</label>
-					<span class="row" id="quantity">QuantityData</span>
-				</div>
-				<div class="col-md-2">
-					<label for="total" class="label label-success row">TotalLabel:</label>
-					<span class="row" id="total">TotalData</span>
-				</div>
-			</div>
-			&nbsp;
-		</div>
+	<div id="index list" class="jumbotron">
+		<h1 id="heading">Home Page</h1>
+		<p>Welcome to the home pgae of my shit little test app.</p>
 	</div>
-    
-    
-    <div id="projects" class="bg-danger">
-      <h2>Projects</h2>
-    </div>
-    <div id="education" class='gray'>
-      <h2>Education</h2>
-    </div>
-    <div id="mapDiv">
-      <h2>Where I've Lived and Worked</h2>
-    </div>
-    <div id="letsConnect" class='dark-gray'>
-      <h2 class='orange center-text'>Let's Connect</h2>
-        <ul id="footerContacts" class="flex-box">
-      </ul>
-    </div>
-  </div>
 
-<!-- Load resumeBuilder javascript file -->
-  <script src="js/resumeBuilder.js"></script>
-<!-- Load bootstrap js file -->
-  <script src="js/bootstrap.min.js"></script>
+	<ul id="sidebar" class="col-sm-3 col-md-3 col-lg-2 well">
+	</ul>
 
-  <!-- Load jQuery UI library script remotely -->
-  <!-- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script> -->
 
-  <!-- The related stylesheet for jQuery UI library -->
-  <!-- <link rel='stylesheet' type='text/css' href='http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css'/> -->
-
-  <!-- Load the jQuery library from the web -->
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
-
-  <script type="text/javascript">
-    if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('topContacts').style.display = 'none';
-    }
-    if(document.getElementsByTagName('h1').length === 0) {
-      document.getElementById('header').style.display = 'none';
-    }
-    if(document.getElementsByClassName('work-entry').length === 0) {
-      document.getElementById('workExperience').style.display = 'none';
-    }
-    if(document.getElementsByClassName('project-entry').length === 0) {
-      document.getElementById('projects').style.display = 'none';
-    }
-    if(document.getElementsByClassName('education-entry').length === 0) {
-      document.getElementById('education').style.display = 'none';
-    }
-    if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('letsConnect').style.display = 'none';
-    }
-    if(document.getElementById('map') === null) {
-      document.getElementById('mapDiv').style.display = 'none';
-    }
-  </script>
-
-</body>
-<footer>
-	<link rel="stylesheet" type="text/css" href="css/mine/style.css">
-	<script type="text/javascript" src="js/mine/mine.js"></script>
-</footer>
+	</body>
+	<footer>
+		<link rel="stylesheet" type="text/css" href="css/mine/style.css">
+		<script type="text/javascript" src="js/mine/mine.js"></script>
+	</footer>
 </html>
