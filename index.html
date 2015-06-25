@@ -21,6 +21,109 @@
 	</ul>
 
 
+	<!-- 
+==============================================================
+==============================================================
+=============   using scope query for elgapp   ===============
+========ElgHasScoringController.php         ============================
+==============================================================
+	 -->
+
+<?php
+//controller file
+class ElgHasScoringController
+{
+	public function getIndex()
+	{
+		$scorableModels = $this->getElgAppModels();
+		view()->share('operations', static::ops());
+		return view($this->getViewName('index'))
+			->with('models', $scorableModels);
+	}
+	/*
+	This function calls the method in the repofile that queries 
+	the elgApp model using scope.
+	*/
+	protected function getElgAppModels()
+	{
+		$this->getProvider()->getScorableApps();
+	}
+}
+
+
+
+?>
+
+<!-- 
+==========================================================================================================================
+=============================================================
+=============================================================
+=============================================================
+ -->
+<!-- 
+=============================================================
+=============================================================
+=============   using scope query for elgapp  ===============
+========ElgHasScoring.php        ============================
+=============================================================
+-->
+<?php
+	//ElgHasScoring repo file
+
+	// use elgapp model
+	use ElgApp
+
+	class ElgHasScoring
+	{
+		public function getScorableApps();
+		{
+			return ElgApp::getScorableApps()
+				->orderBy('id')
+				->get();
+		}
+	}
+?>
+<!-- 
+=============================================================
+=============================================================
+=============================================================
+=============================================================
+=============================================================
+ -->
+<!--
+=============================================================
+=============================================================
+=============   using scope query for elgapp  ===============
+========ElgApp.php         ===================      =========
+=============================================================
+-->
+<?php
+	//elgapp model
+
+	class ElgApp
+	{
+		//Scope method for getting elgApps ready for scoring
+		public function scopreGetScorableApps($query);
+		{
+			//using normal where statements
+			return $query->where('submitted', '!=', null)
+				->where('reviewed', '=', null)
+				->get();
+			//Second try at for getting the scorable elgApps
+			return $query->whereNotNull('submitted')
+				->whereNull('reviewed')
+				->get();
+		}
+		
+	}
+?>
+<!-- 
+=============================================================
+=============================================================
+=============================================================
+=============================================================
+============================================================= -->
+
 	</body>
 	<footer>
 		<link rel="stylesheet" type="text/css" href="css/mine/style.css">
