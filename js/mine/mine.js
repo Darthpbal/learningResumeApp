@@ -38,6 +38,10 @@ var master = {
 			"name" : "Dads Page",
 			"location" : "pages/dads_page/dads_page.html",
 		},
+		"jQueryTests" : {
+			"name" : "Bootstrap side panel",
+			"location" : "pages/testjQuerySliders.html",
+		},
 	},
 	"show" : function()
 	{
